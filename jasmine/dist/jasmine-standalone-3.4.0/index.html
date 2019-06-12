@@ -2,17 +2,30 @@
   <script src="src/Thermostat.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js"></script>
+  <script src="jquery-circle-progress/dist/circle-progress.js"></script>
 <body>
   <script>
     window.onload = function() {
     
       $('.temp_disp').knob({ 
-        readOnly: true
-    })
+        min: 10,
+        max: 32,
+        angleArc: 270,
+        readOnly: true,
+        displayInput: true,
+        fgColor: 'green'
+      });
     };
+    $(document).ready(function(){
+  $(".power_save").click(function(){
+    $(".ps_on").toggle();
+  });
+});
   </script>
   <h1> Thermostat </h1>
-  <p class="temp_disp">27</p>
+  <input class='temp_disp' type='text' value='27'></input>
+  <div class="ps_on">Power save on</div> 
+  <!-- <p class="temp_disp">27</p> -->
   <p class="usage_disp">Current Usage:</p>
   <p class="ps_disp">Current Mode:</p>
   <button class="usage">Usage</button>
