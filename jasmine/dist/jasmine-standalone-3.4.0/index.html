@@ -3,16 +3,17 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jQuery-Knob/1.2.13/jquery.knob.min.js"></script>
   <script src="src/Thermostat.js"></script>
   <script src="src/interface.js"></script>
+  <script src="config.js"></script>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="/Users/student/projects/thermostat/public/style.css">
- 
-<body>å
+</head>
+<body>
   <h1> Thermostat </h1>
   <input class='temp_disp' type='text' value='21'></input>
-  <i class="material-icons" id="ps_disp">filter_vintage</i> 
+  <img id="weather_disp" src="">
+  <i class="material-icons" id="ps_disp">filter_vintage</i>
   <i class="material-icons" id="usage_disp"></i> 
   <!-- <p class="temp_disp">27</p> -->
-  <p class="usage_disp">Current Usage:</p>
   <!-- <p class="ps_disp">Current Mode:</p> -->
   <div></div>
   <button class="usage">Usage</button>
@@ -20,4 +21,12 @@
   <button class="power_save">Power Save</button>
   <button class="up">+</button>
   <button class="down">-</button>
+  <p class="usage_disp">Current Usage:</p>
+  <select id='cityPicker'>
+    <option value='2643743'>London</option>
+    <option value='2968815'>Paris</option>
+    <option value='3333134'>Bristol</option>
+    <option value='5037649'>Mineapolis</option>
+    <option value='360630'>Cairo</option>
+  </select>
 </body>

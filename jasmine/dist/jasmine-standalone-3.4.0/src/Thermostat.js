@@ -5,6 +5,10 @@ function Thermostat () {
   this.powerSavingMode = true;
 };
 
+Thermostat.prototype.changeTemp = function(temperature) {
+  this.temperature = temperature;
+};
+
 Thermostat.prototype.up = function() {
   if (this.temperature < this.maxTemp) {
     this.temperature = this.temperature + 1;

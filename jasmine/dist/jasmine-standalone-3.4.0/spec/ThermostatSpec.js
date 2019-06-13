@@ -66,4 +66,9 @@ describe("Thermostat", function() {
     thermostat.temperature = 25;
     expect(thermostat.usage()).toEqual("high-usage");
   });
+
+  it('can set the temp to a given value', function() {
+    thermostat.changeTemp(25);
+    expect(thermostat.temperature).toEqual(25)
+  });
 });
