@@ -3,14 +3,14 @@
     
     var currentTemp; 
     
-    $.get('http://localhost:9292/temperature', function(data) {
+    $.get('localhost:9292/temperature', function(data) {
       currentTemp = data;
       thermostat.changeTemp(currentTemp);
       knobDisplay();
     })
   
     function updateTemp() {
-      $.post('http://localhost:9292/temperature', {temp: thermostat.temperature});
+      $.post('localhost:9292/temperature', {temp: thermostat.temperature});
     };
 
     // $('.temp_disp').val(thermostat.temperature);
