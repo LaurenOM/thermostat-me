@@ -1,11 +1,21 @@
   $(document).ready(function(){
     var thermostat = new Thermostat();
-    $('.temp_disp').val(thermostat.temperature)
-    var knobColour = 'orange';
-    var city = 'London';
-    var cityId = '2643743'
     
+    var currentTemp; 
+    
+    $.get('http://localhost:9292/temperature', function(data) {
+      currentTemp = data;
+      thermostat.changeTemp(currentTemp);
+      knobDisplay();
+    })
+  
+    function updateTemp() {
+      $.post('http://localhost:9292/temperature', {temp: thermostat.temperature});
+    };
 
+    // $('.temp_disp').val(thermostat.temperature);
+  
+    var cityId = '2643743'
     var response;
     function Weather() {
       $.get('https://api.openweathermap.org/data/2.5/weather?id='+cityId+'&appid='+api_key, function(data) {
@@ -41,11 +51,13 @@
 
     $('.up').on('click', function() {
       thermostat.up();
+      updateTemp();
       knobDisplay();
     })
 
     $('.down').on('click', function() {
       thermostat.down();
+      updateTemp();
       knobDisplay();
     }) 
 
@@ -59,6 +71,7 @@
 
     $('.reset').on('click', function() {
       thermostat.reset();
+      updateTemp();
       $('.temp_disp').val(thermostat.temperature)
     }) 
 
